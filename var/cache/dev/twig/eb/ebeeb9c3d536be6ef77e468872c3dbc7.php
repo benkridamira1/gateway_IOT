@@ -168,6 +168,6 @@ class __TwigTemplate_bc1847af7a884dfc305a6c6b78cd002b extends Template
 
     {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: false }) }}
 {% endblock %}
-", "@WebProfiler/Collector/ajax.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/symfony/web-profiler-bundle/Resources/views/Collector/ajax.html.twig");
+", "@WebProfiler/Collector/ajax.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/symfony/web-profiler-bundle/Resources/views/Collector/ajax.html.twig");
     }
 }

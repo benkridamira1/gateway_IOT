@@ -607,6 +607,6 @@ $context["key"] == "hit_read_ratio")) {
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/cache.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/symfony/web-profiler-bundle/Resources/views/Collector/cache.html.twig");
+", "@WebProfiler/Collector/cache.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/symfony/web-profiler-bundle/Resources/views/Collector/cache.html.twig");
     }
 }

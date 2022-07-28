@@ -97,6 +97,6 @@ class __TwigTemplate_4d1cad16531e052dfad3d9d6eca50d09 extends Template
         </div>
     </div>
 </div>
-", "@WebProfiler/Profiler/header.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/header.html.twig");
+", "@WebProfiler/Profiler/header.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/header.html.twig");
     }
 }

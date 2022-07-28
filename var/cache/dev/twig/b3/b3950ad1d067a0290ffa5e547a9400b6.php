@@ -1140,6 +1140,6 @@ class __TwigTemplate_97d5b881e4e492a7601c1c70ecf5d185 extends Template
 
 </body>
 </html>
-", "@ApiPlatform/GraphQlPlayground/index.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/GraphQlPlayground/index.html.twig");
+", "@ApiPlatform/GraphQlPlayground/index.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/GraphQlPlayground/index.html.twig");
     }
 }

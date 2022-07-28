@@ -1349,6 +1349,6 @@ class __TwigTemplate_c9280d90740e2d231f7539942f12c212 extends Template
         <span>{{ route|default(controller) }}</span>
     {%- endif %}
 {% endmacro %}
-", "@WebProfiler/Collector/request.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/symfony/web-profiler-bundle/Resources/views/Collector/request.html.twig");
+", "@WebProfiler/Collector/request.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/symfony/web-profiler-bundle/Resources/views/Collector/request.html.twig");
     }
 }

@@ -299,6 +299,6 @@ class __TwigTemplate_c5eb508bef4fbc88da8b780d3b0ce04e extends Template
         {{- form_rest(form) -}}
     </table>
 {%- endblock form_widget_compound -%}
-", "form_table_layout.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/symfony/twig-bridge/Resources/views/Form/form_table_layout.html.twig");
+", "form_table_layout.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/symfony/twig-bridge/Resources/views/Form/form_table_layout.html.twig");
     }
 }

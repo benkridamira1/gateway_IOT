@@ -413,6 +413,6 @@ class __TwigTemplate_660898387461c77cbfb4afd3a14e91c8 extends Template
         </div>
     {% endfor %}
 {% endblock %}
-", "@Debug/Profiler/dump.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/symfony/debug-bundle/Resources/views/Profiler/dump.html.twig");
+", "@Debug/Profiler/dump.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/symfony/debug-bundle/Resources/views/Profiler/dump.html.twig");
     }
 }

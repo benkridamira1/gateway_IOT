@@ -1671,6 +1671,6 @@ class __TwigTemplate_e04c173f11939460efac722d251b526d extends Template
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
     }
 }

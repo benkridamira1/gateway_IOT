@@ -171,6 +171,6 @@ class __TwigTemplate_dfe52d9d45b17020ccd550b053a25eaa extends Template
         {%- endfor -%}
     </pre>
 {% endif %}
-", "@Doctrine/Collector/explain.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/doctrine/doctrine-bundle/Resources/views/Collector/explain.html.twig");
+", "@Doctrine/Collector/explain.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/doctrine/doctrine-bundle/Resources/views/Collector/explain.html.twig");
     }
 }

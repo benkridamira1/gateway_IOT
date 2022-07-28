@@ -8,6 +8,7 @@ require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'RemoteUserConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'GuardConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'LoginThrottlingConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'JwtConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'FormLoginConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'FormLoginLdapConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'JsonLoginConfig.php';
@@ -50,6 +51,7 @@ class FirewallConfig
     private $guard;
     private $customAuthenticators;
     private $loginThrottling;
+    private $jwt;
     private $formLogin;
     private $formLoginLdap;
     private $jsonLogin;
@@ -305,6 +307,17 @@ class FirewallConfig
         return $this->loginThrottling;
     }
     
+    public function jwt(array $value = []): \Symfony\Config\Security\FirewallConfig\JwtConfig
+    {
+        if (null === $this->jwt) {
+            $this->jwt = new \Symfony\Config\Security\FirewallConfig\JwtConfig($value);
+        } elseif ([] !== $value) {
+            throw new InvalidConfigurationException('The node created by "jwt()" has already been initialized. You cannot pass values the second time you call jwt().');
+        }
+    
+        return $this->jwt;
+    }
+    
     public function formLogin(array $value = []): \Symfony\Config\Security\FirewallConfig\FormLoginConfig
     {
         if (null === $this->formLogin) {
@@ -512,6 +525,11 @@ class FirewallConfig
             unset($value['login_throttling']);
         }
     
+        if (isset($value['jwt'])) {
+            $this->jwt = new \Symfony\Config\Security\FirewallConfig\JwtConfig($value['jwt']);
+            unset($value['jwt']);
+        }
+    
         if (isset($value['form_login'])) {
             $this->formLogin = new \Symfony\Config\Security\FirewallConfig\FormLoginConfig($value['form_login']);
             unset($value['form_login']);
@@ -628,6 +646,9 @@ class FirewallConfig
         }
         if (null !== $this->loginThrottling) {
             $output['login_throttling'] = $this->loginThrottling->toArray();
+        }
+        if (null !== $this->jwt) {
+            $output['jwt'] = $this->jwt->toArray();
         }
         if (null !== $this->formLogin) {
             $output['form_login'] = $this->formLogin->toArray();

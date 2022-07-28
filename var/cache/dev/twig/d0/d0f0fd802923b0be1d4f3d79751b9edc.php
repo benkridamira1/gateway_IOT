@@ -191,6 +191,6 @@ class __TwigTemplate_2cd57d5f5e14817a58212868760f9b19 extends Template
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/templates/base.html.twig");
+", "base.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/templates/base.html.twig");
     }
 }

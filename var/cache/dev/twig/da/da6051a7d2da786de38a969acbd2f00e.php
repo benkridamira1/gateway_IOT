@@ -139,6 +139,6 @@ class __TwigTemplate_8775eb5d14513edb83b34f114813a200 extends Template
 
 </body>
 </html>
-", "@ApiPlatform/Graphiql/index.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/Graphiql/index.html.twig");
+", "@ApiPlatform/Graphiql/index.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/Graphiql/index.html.twig");
     }
 }

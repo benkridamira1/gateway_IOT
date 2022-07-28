@@ -403,6 +403,6 @@ class __TwigTemplate_a4c62dbeb1526dfa61aec0ee2a5f05aa extends Template
 
 </body>
 </html>
-", "@ApiPlatform/SwaggerUi/index.html.twig", "/home/amira/PhpstormProjects/GatewayIoT_backend/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/SwaggerUi/index.html.twig");
+", "@ApiPlatform/SwaggerUi/index.html.twig", "/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/SwaggerUi/index.html.twig");
     }
 }
