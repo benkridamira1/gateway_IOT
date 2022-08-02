@@ -3,13 +3,22 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 use App\Repository\MeterRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
+
 /**
  * @ORM\Entity(repositoryClass=MeterRepository::class)
- */
-#[ApiResource]
+ * @ApiResource(attributes={
+ *     "normalization_context"={"groups"={"meter"}},
+ *     "denormalization_context"={"groups"={"meter"}}
+ * })
+
+ *  */
+
 class Meter
 {
     /**
@@ -20,7 +29,8 @@ class Meter
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer",unique=true)
+     * @Groups({"meter"})
      */
     private $node_id;
 

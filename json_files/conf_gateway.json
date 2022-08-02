@@ -1,0 +1,19 @@
+{
+  "name": "GW 1",
+  "location": "36.8947299718671, 10.187003269312001",
+  "pulling_period": 60,
+  "pushing_period": 60,
+  "host": "server",
+  "port": 1883,
+  "username": "user",
+  "password": "pwd",
+  "use_tls": 0,
+  "topic": "sofia/topic",
+  "log_file": "/folder/modbus_gateway_{suffix}.log",
+  "backup_file": "/folder/backup.json",
+  "hw_model": "RPi3 B+",
+  "sw_version": "2.2",
+  "serial_number": "IMGxxxxxx",
+  "board_serial_number": "000000111111222222",
+  "asset_id": "aaaaaaaaaaa"
+}

@@ -1,0 +1,42 @@
+[
+    {
+        "node_id": "1",
+        "name": "hh",
+        "serial_number": "g",
+        "manufacturer": "request",
+        "method": "request",
+        "port": "\/dev\/request",
+        "baudrate": 100,
+        "token": "request"
+    },
+    {
+        "node_id": 2,
+        "name": "Machine 2",
+        "serial_number": "20201218003",
+        "manufacturer": "DATAKOM",
+        "method": "rtu",
+        "port": "\/dev\/ttyUSB0",
+        "baudrate": 19200,
+        "token": "bbbbbbbbbbbb"
+    },
+    {
+        "node_id": 3,
+        "name": "Machine 3",
+        "serial_number": "20201218003",
+        "manufacturer": "DATAKOM",
+        "method": "rtu",
+        "port": "\/dev\/ttyUSB0",
+        "baudrate": 19200,
+        "token": "cccccccccccc"
+    },
+    {
+        "node_id": 61,
+        "name": "hh",
+        "serial_number": "g",
+        "manufacturer": "request",
+        "method": "request",
+        "port": "\/dev\/request",
+        "baudrate": 100,
+        "token": "request"
+    }
+]
