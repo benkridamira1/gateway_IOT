@@ -12,9 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=MeterRepository::class)
- * @ApiResource(attributes={
- *     "normalization_context"={"groups"={"meter"}},
- *     "denormalization_context"={"groups"={"meter"}}
  * })
 
  *  */
@@ -30,7 +27,6 @@ class Meter
 
     /**
      * @ORM\Column(type="integer",unique=true)
-     * @Groups({"meter"})
      */
     private $node_id;
 

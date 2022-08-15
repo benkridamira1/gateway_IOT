@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=GatewayRepository::class)
  */
-#[ApiResource]
 class Gateway
 {
     /**

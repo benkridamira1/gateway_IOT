@@ -505,6 +505,13 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\GatewayController" class="App\Controller\GatewayController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.0ghLsew.App\Controller\GatewayController"/>
+      </call>
+    </service>
     <service id="App\Controller\MeterController" class="App\Controller\MeterController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -5482,7 +5489,7 @@
       <call method="add">
         <argument type="service" id=".security.request_matcher.cRNYaJ1"/>
         <argument type="collection">
-          <argument>IS_AUTHENTICATED_FULLY</argument>
+          <argument>PUBLIC_ACCESS</argument>
         </argument>
         <argument>null</argument>
       </call>
@@ -7329,6 +7336,9 @@
         <argument>Generate public/private keys for use in your application.</argument>
       </call>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GatewayController" class="App\Controller\GatewayController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GatewayController" class="App\Controller\GatewayController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\GatewayController" class="App\Controller\GatewayController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MeterController" class="App\Controller\MeterController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MeterController" class="App\Controller\MeterController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MeterController" class="App\Controller\MeterController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -8004,6 +8014,12 @@
         <argument key="session" type="service_closure" id=".session.deprecated" on-invalid="ignore"/>
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
+    </service>
+    <service id=".service_locator.0ghLsew.App\Controller\GatewayController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\GatewayController"/>
+      <argument>App\Controller\GatewayController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.0ghLsew" method="withContext"/>
     </service>
     <service id=".service_locator.0ghLsew.App\Controller\MeterController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MeterController"/>

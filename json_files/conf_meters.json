@@ -1,42 +1,52 @@
 [
     {
-        "node_id": "1",
-        "name": "hh",
-        "serial_number": "g",
+        "node_id": 100,
+        "name": "request",
+        "serial_number": "request",
         "manufacturer": "request",
         "method": "request",
         "port": "\/dev\/request",
-        "baudrate": 100,
+        "baudrate": 19200,
         "token": "request"
     },
     {
-        "node_id": 2,
-        "name": "Machine 2",
-        "serial_number": "20201218003",
-        "manufacturer": "DATAKOM",
-        "method": "rtu",
-        "port": "\/dev\/ttyUSB0",
-        "baudrate": 19200,
-        "token": "bbbbbbbbbbbb"
-    },
-    {
-        "node_id": 3,
-        "name": "Machine 3",
-        "serial_number": "20201218003",
-        "manufacturer": "DATAKOM",
-        "method": "rtu",
-        "port": "\/dev\/ttyUSB0",
-        "baudrate": 19200,
-        "token": "cccccccccccc"
-    },
-    {
-        "node_id": 61,
-        "name": "hh",
-        "serial_number": "g",
+        "node_id": 200,
+        "name": "request",
+        "serial_number": "request",
         "manufacturer": "request",
         "method": "request",
         "port": "\/dev\/request",
-        "baudrate": 100,
+        "baudrate": 19200,
+        "token": "request"
+    },
+    {
+        "node_id": 300,
+        "name": "request",
+        "serial_number": "request",
+        "manufacturer": "request",
+        "method": "request",
+        "port": "\/dev\/request",
+        "baudrate": 19200,
+        "token": "request"
+    },
+    {
+        "node_id": 400,
+        "name": "request",
+        "serial_number": "request",
+        "manufacturer": "request",
+        "method": "request",
+        "port": "\/dev\/request",
+        "baudrate": 19200,
+        "token": "request"
+    },
+    {
+        "node_id": 500,
+        "name": "request",
+        "serial_number": "request",
+        "manufacturer": "request",
+        "method": "request",
+        "port": "\/dev\/request",
+        "baudrate": 19200,
         "token": "request"
     }
 ]

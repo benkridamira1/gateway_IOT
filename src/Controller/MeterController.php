@@ -15,7 +15,7 @@ class MeterController extends  AbstractController
 {
 
     /**
-     * @Route("/addMeter/", name="add_meter", methods={"POST"})
+     * @Route("/addMeter", name="add_meter", methods={"POST"})
      */
     public function addMeter(Request $request): Response
     {
@@ -103,7 +103,7 @@ class MeterController extends  AbstractController
     }
 
     /**
-     * @Route("/getAllMeters/", name="get_all_meter", methods={"GET"})
+     * @Route("/getAllMeters", name="get_all_meter", methods={"GET"})
      */
     public function getAllMeters()
     {
@@ -193,20 +193,17 @@ class MeterController extends  AbstractController
 
         foreach ($json_arr as $key => $value) {
             if ($value['node_id'] == $id) {
-              //  $json_arr[$key]['node_id'] = $id;
 
 
+                $attributes=["name",'serial_number','manufacturer','method','port','baudrate','token'];
 
-                ///je dois tester l'existence du key dans le jsin de input sinon laisser l"ancienne valeur
+                foreach ($attributes as $attribute)
 
-                $json_arr[$key]['name'] = $requestdata['name'];
-                $json_arr[$key]['serial_number'] =$requestdata['serial_number'] ;
-                $json_arr[$key]['manufacturer'] = $requestdata['manufacturer'];
-                $json_arr[$key]['method'] = $requestdata['method'];
-                $json_arr[$key]['port'] = $requestdata['port'];
-                $json_arr[$key]['baudrate'] = $requestdata['baudrate'];
-                $json_arr[$key]['token'] = $requestdata['token'];
 
+                if(array_key_exists($attribute, $requestdata)){
+
+                    $json_arr[$key][$attribute] = $requestdata[$attribute];
+                }
             }
 
         }
