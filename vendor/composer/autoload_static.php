@@ -169,6 +169,11 @@ class ComposerStaticInit864238641f85184133e4317bb878ab6e
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
             'DeepCopy\\' => 9,
         ),
+        'C' => 
+        array (
+            'Cron\\CronBundle\\' => 16,
+            'Cron\\' => 5,
+        ),
         'A' => 
         array (
             'App\\Tests\\' => 10,
@@ -617,6 +622,14 @@ class ComposerStaticInit864238641f85184133e4317bb878ab6e
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'Cron\\CronBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cron/cron-bundle',
+        ),
+        'Cron\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cron/cron/src',
         ),
         'App\\Tests\\' => 
         array (
@@ -1134,7 +1147,8 @@ class ComposerStaticInit864238641f85184133e4317bb878ab6e
         'ApiPlatform\\Core\\Validator\\EventListener\\ValidateListener' => __DIR__ . '/..' . '/api-platform/core/src/Validator/EventListener/ValidateListener.php',
         'ApiPlatform\\Core\\Validator\\Exception\\ValidationException' => __DIR__ . '/..' . '/api-platform/core/src/Validator/Exception/ValidationException.php',
         'ApiPlatform\\Core\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/api-platform/core/src/Validator/ValidatorInterface.php',
-        'App\\Controller\\TestController' => __DIR__ . '/../..' . '/src/Controller/TestController.php',
+        'App\\Controller\\GatewayController' => __DIR__ . '/../..' . '/src/Controller/GatewayController.php',
+        'App\\Controller\\MeterController' => __DIR__ . '/../..' . '/src/Controller/MeterController.php',
         'App\\DataPersister\\UserDataPersister' => __DIR__ . '/../..' . '/src/DataPersister/UserDataPersister.php',
         'App\\Entity\\Gateway' => __DIR__ . '/../..' . '/src/Entity/Gateway.php',
         'App\\Entity\\Meter' => __DIR__ . '/../..' . '/src/Entity/Meter.php',
@@ -1146,6 +1160,45 @@ class ComposerStaticInit864238641f85184133e4317bb878ab6e
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Cron\\Builder\\SchemaBuilder' => __DIR__ . '/..' . '/cron/cron/src/Builder/SchemaBuilder.php',
+        'Cron\\Cron' => __DIR__ . '/..' . '/cron/cron/src/Cron.php',
+        'Cron\\CronBundle\\Command\\CronCreateCommand' => __DIR__ . '/..' . '/cron/cron-bundle/Command/CronCreateCommand.php',
+        'Cron\\CronBundle\\Command\\CronDeleteCommand' => __DIR__ . '/..' . '/cron/cron-bundle/Command/CronDeleteCommand.php',
+        'Cron\\CronBundle\\Command\\CronDisableCommand' => __DIR__ . '/..' . '/cron/cron-bundle/Command/CronDisableCommand.php',
+        'Cron\\CronBundle\\Command\\CronEnableCommand' => __DIR__ . '/..' . '/cron/cron-bundle/Command/CronEnableCommand.php',
+        'Cron\\CronBundle\\Command\\CronListCommand' => __DIR__ . '/..' . '/cron/cron-bundle/Command/CronListCommand.php',
+        'Cron\\CronBundle\\Command\\CronReportsTruncateCommand' => __DIR__ . '/..' . '/cron/cron-bundle/Command/CronReportsTruncateCommand.php',
+        'Cron\\CronBundle\\Command\\CronRunCommand' => __DIR__ . '/..' . '/cron/cron-bundle/Command/CronRunCommand.php',
+        'Cron\\CronBundle\\Command\\CronStartCommand' => __DIR__ . '/..' . '/cron/cron-bundle/Command/CronStartCommand.php',
+        'Cron\\CronBundle\\Command\\CronStopCommand' => __DIR__ . '/..' . '/cron/cron-bundle/Command/CronStopCommand.php',
+        'Cron\\CronBundle\\CronCronBundle' => __DIR__ . '/..' . '/cron/cron-bundle/CronCronBundle.php',
+        'Cron\\CronBundle\\Cron\\CommandBuilder' => __DIR__ . '/..' . '/cron/cron-bundle/Cron/CommandBuilder.php',
+        'Cron\\CronBundle\\Cron\\CronCommand' => __DIR__ . '/..' . '/cron/cron-bundle/Cron/CronCommand.php',
+        'Cron\\CronBundle\\Cron\\Manager' => __DIR__ . '/..' . '/cron/cron-bundle/Cron/Manager.php',
+        'Cron\\CronBundle\\Cron\\Resolver' => __DIR__ . '/..' . '/cron/cron-bundle/Cron/Resolver.php',
+        'Cron\\CronBundle\\DependencyInjection\\CronCronExtension' => __DIR__ . '/..' . '/cron/cron-bundle/DependencyInjection/CronCronExtension.php',
+        'Cron\\CronBundle\\Entity\\CronJob' => __DIR__ . '/..' . '/cron/cron-bundle/Entity/CronJob.php',
+        'Cron\\CronBundle\\Entity\\CronJobRepository' => __DIR__ . '/..' . '/cron/cron-bundle/Entity/CronJobRepository.php',
+        'Cron\\CronBundle\\Entity\\CronReport' => __DIR__ . '/..' . '/cron/cron-bundle/Entity/CronReport.php',
+        'Cron\\CronBundle\\Entity\\CronReportRepository' => __DIR__ . '/..' . '/cron/cron-bundle/Entity/CronReportRepository.php',
+        'Cron\\Exception\\InvalidPatternException' => __DIR__ . '/..' . '/cron/cron/src/Exception/InvalidPatternException.php',
+        'Cron\\Executor\\Executor' => __DIR__ . '/..' . '/cron/cron/src/Executor/Executor.php',
+        'Cron\\Executor\\ExecutorInterface' => __DIR__ . '/..' . '/cron/cron/src/Executor/ExecutorInterface.php',
+        'Cron\\Executor\\ExecutorSet' => __DIR__ . '/..' . '/cron/cron/src/Executor/ExecutorSet.php',
+        'Cron\\Job\\AbstractJob' => __DIR__ . '/..' . '/cron/cron/src/Job/AbstractJob.php',
+        'Cron\\Job\\AbstractProcessJob' => __DIR__ . '/..' . '/cron/cron/src/Job/AbstractProcessJob.php',
+        'Cron\\Job\\JobInterface' => __DIR__ . '/..' . '/cron/cron/src/Job/JobInterface.php',
+        'Cron\\Job\\PhpJob' => __DIR__ . '/..' . '/cron/cron/src/Job/PhpJob.php',
+        'Cron\\Job\\ShellJob' => __DIR__ . '/..' . '/cron/cron/src/Job/ShellJob.php',
+        'Cron\\Report\\CronReport' => __DIR__ . '/..' . '/cron/cron/src/Report/CronReport.php',
+        'Cron\\Report\\JobReport' => __DIR__ . '/..' . '/cron/cron/src/Report/JobReport.php',
+        'Cron\\Report\\ReportInterface' => __DIR__ . '/..' . '/cron/cron/src/Report/ReportInterface.php',
+        'Cron\\Resolver\\ArrayResolver' => __DIR__ . '/..' . '/cron/cron/src/Resolver/ArrayResolver.php',
+        'Cron\\Resolver\\ResolverInterface' => __DIR__ . '/..' . '/cron/cron/src/Resolver/ResolverInterface.php',
+        'Cron\\Schedule\\CrontabSchedule' => __DIR__ . '/..' . '/cron/cron/src/Schedule/CrontabSchedule.php',
+        'Cron\\Schedule\\ScheduleInterface' => __DIR__ . '/..' . '/cron/cron/src/Schedule/ScheduleInterface.php',
+        'Cron\\Validator\\CrontabValidator' => __DIR__ . '/..' . '/cron/cron/src/Validator/CrontabValidator.php',
+        'Cron\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/cron/cron/src/Validator/ValidatorInterface.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',

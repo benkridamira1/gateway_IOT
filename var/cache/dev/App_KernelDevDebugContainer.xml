@@ -23,6 +23,7 @@
       <parameter key="NelmioCorsBundle">Nelmio\CorsBundle\NelmioCorsBundle</parameter>
       <parameter key="ApiPlatformBundle">ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle</parameter>
       <parameter key="LexikJWTAuthenticationBundle">Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle</parameter>
+      <parameter key="CronCronBundle">Cron\CronBundle\CronCronBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -80,6 +81,10 @@
       <parameter key="LexikJWTAuthenticationBundle" type="collection">
         <parameter key="path">/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/lexik/jwt-authentication-bundle</parameter>
         <parameter key="namespace">Lexik\Bundle\JWTAuthenticationBundle</parameter>
+      </parameter>
+      <parameter key="CronCronBundle" type="collection">
+        <parameter key="path">/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/cron/cron-bundle</parameter>
+        <parameter key="namespace">Cron\CronBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -368,6 +373,7 @@
     </parameter>
     <parameter key="api_platform.resource_class_directories" type="collection">
       <parameter>/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/src/Entity</parameter>
+      <parameter>/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/cron/cron-bundle/Entity</parameter>
     </parameter>
     <parameter key="api_platform.oauth.enabled">false</parameter>
     <parameter key="api_platform.oauth.clientId"></parameter>
@@ -406,6 +412,11 @@
     <parameter key="lexik_jwt_authentication.user_id_claim">email</parameter>
     <parameter key="lexik_jwt_authentication.encoder.signature_algorithm">RS256</parameter>
     <parameter key="lexik_jwt_authentication.encoder.crypto_engine">openssl</parameter>
+    <parameter key="cron.resolver.class">Cron\CronBundle\Cron\Resolver</parameter>
+    <parameter key="cron.manager.class">Cron\CronBundle\Cron\Manager</parameter>
+    <parameter key="cron.command_builder.class">Cron\CronBundle\Cron\CommandBuilder</parameter>
+    <parameter key="cron.executor.class">Cron\Executor\Executor</parameter>
+    <parameter key="cron.validator.class">Cron\Validator\CrontabValidator</parameter>
     <parameter key="maker.compatible_check.doctrine.supports_attributes">true</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
@@ -497,7 +508,17 @@
         <parameter>@WebProfiler/Collector/config.html.twig</parameter>
       </parameter>
     </parameter>
-    <parameter key="console.command.ids" type="collection"/>
+    <parameter key="console.command.ids" type="collection">
+      <parameter>console.command.public_alias.Cron\CronBundle\Command\CronCreateCommand</parameter>
+      <parameter>console.command.public_alias.Cron\CronBundle\Command\CronDeleteCommand</parameter>
+      <parameter>console.command.public_alias.Cron\CronBundle\Command\CronDisableCommand</parameter>
+      <parameter>console.command.public_alias.Cron\CronBundle\Command\CronEnableCommand</parameter>
+      <parameter>console.command.public_alias.Cron\CronBundle\Command\CronListCommand</parameter>
+      <parameter>console.command.public_alias.Cron\CronBundle\Command\CronReportsTruncateCommand</parameter>
+      <parameter>console.command.public_alias.Cron\CronBundle\Command\CronRunCommand</parameter>
+      <parameter>console.command.public_alias.Cron\CronBundle\Command\CronStartCommand</parameter>
+      <parameter>console.command.public_alias.Cron\CronBundle\Command\CronStopCommand</parameter>
+    </parameter>
   </parameters>
   <services>
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" public="true" synthetic="true"/>
@@ -505,11 +526,28 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Command\ReadMetersCommand" class="App\Command\ReadMetersCommand" autowire="true" autoconfigure="true">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <call method="setName">
+        <argument>readMeters</argument>
+      </call>
+      <call method="setDescription">
+        <argument>Add a short description for your command</argument>
+      </call>
+    </service>
     <service id="App\Controller\GatewayController" class="App\Controller\GatewayController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.0ghLsew.App\Controller\GatewayController"/>
+      </call>
+    </service>
+    <service id="App\Controller\JobController" class="App\Controller\JobController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.0ghLsew.App\Controller\JobController"/>
       </call>
     </service>
     <service id="App\Controller\MeterController" class="App\Controller\MeterController" public="true" autowire="true" autoconfigure="true">
@@ -1878,6 +1916,7 @@
           <argument>/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/nelmio/cors-bundle/translations</argument>
           <argument>/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/api-platform/core/src/Bridge/Symfony/Bundle/translations</argument>
           <argument>/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/lexik/jwt-authentication-bundle/translations</argument>
+          <argument>/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/cron/cron-bundle/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -1899,6 +1938,7 @@
             <argument>vendor/nelmio/cors-bundle/translations</argument>
             <argument>vendor/api-platform/core/src/Bridge/Symfony/Bundle/translations</argument>
             <argument>vendor/lexik/jwt-authentication-bundle/translations</argument>
+            <argument>vendor/cron/cron-bundle/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -4535,6 +4575,10 @@
             <argument>App\Entity</argument>
             <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
           </argument>
+          <argument type="collection">
+            <argument>Cron\CronBundle\Entity</argument>
+            <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+          </argument>
         </argument>
       </argument>
     </service>
@@ -5006,6 +5050,7 @@
       <call method="setEntityNamespaces">
         <argument type="collection">
           <argument key="App">App\Entity</argument>
+          <argument key="CronCronBundle">Cron\CronBundle\Entity</argument>
         </argument>
       </call>
       <call method="setMetadataCache">
@@ -5055,6 +5100,7 @@
       <argument type="service" id="annotations.cached_reader"/>
       <argument type="collection">
         <argument>/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/src/Entity</argument>
+        <argument>/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/vendor/cron/cron-bundle/Entity</argument>
       </argument>
     </service>
     <service id="cache.doctrine.orm.default.metadata" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
@@ -7336,9 +7382,72 @@
         <argument>Generate public/private keys for use in your application.</argument>
       </call>
     </service>
+    <service id="Cron\CronBundle\Command\CronCreateCommand" class="Cron\CronBundle\Command\CronCreateCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="Cron\CronBundle\Command\CronDeleteCommand" class="Cron\CronBundle\Command\CronDeleteCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="Cron\CronBundle\Command\CronDisableCommand" class="Cron\CronBundle\Command\CronDisableCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="Cron\CronBundle\Command\CronEnableCommand" class="Cron\CronBundle\Command\CronEnableCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="Cron\CronBundle\Command\CronListCommand" class="Cron\CronBundle\Command\CronListCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="Cron\CronBundle\Command\CronReportsTruncateCommand" class="Cron\CronBundle\Command\CronReportsTruncateCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="Cron\CronBundle\Command\CronRunCommand" class="Cron\CronBundle\Command\CronRunCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="Cron\CronBundle\Command\CronStartCommand" class="Cron\CronBundle\Command\CronStartCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="Cron\CronBundle\Command\CronStopCommand" class="Cron\CronBundle\Command\CronStopCommand">
+      <tag name="console.command"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="cron.resolver" class="Cron\CronBundle\Cron\Resolver" public="true">
+      <argument type="service" id="cron.manager"/>
+      <argument type="service" id="cron.command_builder"/>
+      <argument>/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT</argument>
+    </service>
+    <service id="cron.manager" class="Cron\CronBundle\Cron\Manager" public="true">
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="cron.executor" class="Cron\Executor\Executor" public="true"/>
+    <service id="cron.command_builder" class="Cron\CronBundle\Cron\CommandBuilder">
+      <argument>dev</argument>
+    </service>
+    <service id="cron.validator" class="Cron\Validator\CrontabValidator" public="true"/>
+    <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\ReadMetersCommand" class="App\Command\ReadMetersCommand" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Command\ReadMetersCommand" class="App\Command\ReadMetersCommand" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GatewayController" class="App\Controller\GatewayController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GatewayController" class="App\Controller\GatewayController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GatewayController" class="App\Controller\GatewayController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\JobController" class="App\Controller\JobController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\JobController" class="App\Controller\JobController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\JobController" class="App\Controller\JobController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MeterController" class="App\Controller\MeterController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MeterController" class="App\Controller\MeterController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MeterController" class="App\Controller\MeterController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7665,15 +7774,31 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.IVq3S6E" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.aKM6MDa" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.5_Sq9.N" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\JobController::DeleteJob" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\JobController::ListJob" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\JobController::UpdateJob" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\JobController::addJob" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\JobController::getJob" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
+        <argument key="App\Controller\JobController:DeleteJob" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\JobController:ListJob" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\JobController:UpdateJob" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\JobController:addJob" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\JobController:getJob" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.bRdave9"/>
@@ -8021,6 +8146,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.0ghLsew" method="withContext"/>
     </service>
+    <service id=".service_locator.0ghLsew.App\Controller\JobController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\JobController"/>
+      <argument>App\Controller\JobController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.0ghLsew" method="withContext"/>
+    </service>
     <service id=".service_locator.0ghLsew.App\Controller\MeterController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MeterController"/>
       <argument>App\Controller\MeterController</argument>
@@ -8230,12 +8361,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.IVq3S6E"/>
+      <argument type="service" id=".service_locator.5_Sq9.N"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.IVq3S6E"/>
+      <argument type="service" id=".service_locator.5_Sq9.N"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -8249,6 +8380,10 @@
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
         <argument>App\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>Cron\CronBundle\Entity</argument>
       </call>
     </service>
     <service id="api_platform.serializer.mapping.class_metadata_factory.inner" class="Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory">
@@ -8303,6 +8438,13 @@
     </service>
     <service id=".errored..service_locator.bRdave9.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
+    <service id=".App\Command\ReadMetersCommand.lazy" class="Symfony\Component\Console\Command\LazyCommand">
+      <argument>readMeters</argument>
+      <argument type="collection"/>
+      <argument>Add a short description for your command</argument>
+      <argument>false</argument>
+      <argument type="service_closure" id="App\Command\ReadMetersCommand"/>
+    </service>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -8735,8 +8877,9 @@
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
-      <argument type="service" id=".service_locator.Frhcf2W"/>
+      <argument type="service" id=".service_locator.cLq4mR8"/>
       <argument type="collection">
+        <argument key="readMeters">App\Command\ReadMetersCommand</argument>
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
         <argument key="cache:clear">console.command.cache_clear</argument>
@@ -8837,9 +8980,10 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.Frhcf2W" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.cLq4mR8" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Command\ReadMetersCommand" type="service_closure" id=".App\Command\ReadMetersCommand.lazy"/>
         <argument key="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand" type="service_closure" id="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand"/>
         <argument key="api_platform.json_schema.json_schema_generate_command" type="service_closure" id="api_platform.json_schema.json_schema_generate_command"/>
         <argument key="api_platform.openapi.command" type="service_closure" id="api_platform.openapi.command"/>
@@ -9284,7 +9428,7 @@
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.IVq3S6E"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.5_Sq9.N"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -9370,6 +9514,16 @@
     <service id="api_platform.metadata.property.metadata_factory.cached.inner" alias="api_platform.metadata.property.metadata_factory.validator"/>
     <service id=".service_locator.FatRZu2" alias=".service_locator.bRdave9"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
+    <service id=".service_locator.bInR.ll" alias=".service_locator.aKM6MDa"/>
     <service id=".service_locator.JmHnXRx" alias=".service_locator.0ghLsew"/>
+    <service id="console.command.public_alias.Cron\CronBundle\Command\CronCreateCommand" alias="Cron\CronBundle\Command\CronCreateCommand" public="true"/>
+    <service id="console.command.public_alias.Cron\CronBundle\Command\CronDeleteCommand" alias="Cron\CronBundle\Command\CronDeleteCommand" public="true"/>
+    <service id="console.command.public_alias.Cron\CronBundle\Command\CronDisableCommand" alias="Cron\CronBundle\Command\CronDisableCommand" public="true"/>
+    <service id="console.command.public_alias.Cron\CronBundle\Command\CronEnableCommand" alias="Cron\CronBundle\Command\CronEnableCommand" public="true"/>
+    <service id="console.command.public_alias.Cron\CronBundle\Command\CronListCommand" alias="Cron\CronBundle\Command\CronListCommand" public="true"/>
+    <service id="console.command.public_alias.Cron\CronBundle\Command\CronReportsTruncateCommand" alias="Cron\CronBundle\Command\CronReportsTruncateCommand" public="true"/>
+    <service id="console.command.public_alias.Cron\CronBundle\Command\CronRunCommand" alias="Cron\CronBundle\Command\CronRunCommand" public="true"/>
+    <service id="console.command.public_alias.Cron\CronBundle\Command\CronStartCommand" alias="Cron\CronBundle\Command\CronStartCommand" public="true"/>
+    <service id="console.command.public_alias.Cron\CronBundle\Command\CronStopCommand" alias="Cron\CronBundle\Command\CronStopCommand" public="true"/>
   </services>
 </container>

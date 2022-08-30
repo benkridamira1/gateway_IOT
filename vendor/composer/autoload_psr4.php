@@ -115,6 +115,8 @@ return array(
     'Doctrine\\Bundle\\MigrationsBundle\\' => array($vendorDir . '/doctrine/doctrine-migrations-bundle'),
     'Doctrine\\Bundle\\DoctrineBundle\\' => array($vendorDir . '/doctrine/doctrine-bundle'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
+    'Cron\\CronBundle\\' => array($vendorDir . '/cron/cron-bundle'),
+    'Cron\\' => array($vendorDir . '/cron/cron/src'),
     'App\\Tests\\' => array($baseDir . '/tests'),
     'App\\' => array($baseDir . '/src'),
     'ApiPlatform\\Core\\' => array($vendorDir . '/api-platform/core/src'),

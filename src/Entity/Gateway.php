@@ -13,10 +13,9 @@ class Gateway
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
-    private $id;
+    private $asset_id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -98,15 +97,9 @@ class Gateway
      */
     private $board_serial_number;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $asset_id;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+
+
 
     public function getName(): ?string
     {

@@ -20,27 +20,7 @@
         "token": "request"
     },
     {
-        "node_id": 300,
-        "name": "request",
-        "serial_number": "request",
-        "manufacturer": "request",
-        "method": "request",
-        "port": "\/dev\/request",
-        "baudrate": 19200,
-        "token": "request"
-    },
-    {
         "node_id": 400,
-        "name": "request",
-        "serial_number": "request",
-        "manufacturer": "request",
-        "method": "request",
-        "port": "\/dev\/request",
-        "baudrate": 19200,
-        "token": "request"
-    },
-    {
-        "node_id": 500,
         "name": "request",
         "serial_number": "request",
         "manufacturer": "request",

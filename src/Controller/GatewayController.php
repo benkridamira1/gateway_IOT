@@ -74,14 +74,15 @@ class GatewayController extends AbstractController
     {
 
         $file='/home/amira/PhpstormProjects/Gateway_Api/gateway_IOT/json_files/conf_gateway.json';
-
+        $array1=[];
 
         if(file_exists($file)){
             $data = file_get_contents($file);
             $item = json_decode($data,true);
 
 
-
+            $isEmpty = empty($item);
+            if(!$isEmpty){
                 $array1=["name"=>$item['name'], "location"=>$item['location'],"pulling_period"=>$item['pulling_period'],
                     "pushing_period"=>$item['pushing_period'],
                     "host"=>$item['host'],"port"=>$item['port'], "username"=>$item['username'],
@@ -99,6 +100,10 @@ class GatewayController extends AbstractController
 
 
                 ];
+            }
+
+
+
 
 
 
