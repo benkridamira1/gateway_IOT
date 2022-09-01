@@ -12,7 +12,7 @@ return [
         '/getGateway' => [[['_route' => 'get_gateway', '_controller' => 'App\\Controller\\GatewayController::getGateway'], null, ['GET' => 0], null, false, false, null]],
         '/deleteGateway' => [[['_route' => 'delete_gateway', '_controller' => 'App\\Controller\\GatewayController::delete'], null, ['DELETE' => 0], null, false, false, null]],
         '/updateGateway' => [[['_route' => 'update_gateway', '_controller' => 'App\\Controller\\GatewayController::updateMeter'], null, ['PUT' => 0], null, false, false, null]],
-        '/test' => [[['_route' => 'tets', '_controller' => 'App\\Controller\\JobController::index'], null, ['GET' => 0], null, false, false, null]],
+        '/test' => [[['_route' => 'test', '_controller' => 'App\\Controller\\JobController::test'], null, ['GET' => 0], null, false, false, null]],
         '/addJob' => [[['_route' => 'add_job', '_controller' => 'App\\Controller\\JobController::addJob'], null, ['POST' => 0], null, false, false, null]],
         '/JobList' => [[['_route' => 'JobList', '_controller' => 'App\\Controller\\JobController::ListJob'], null, ['GET' => 0], null, false, false, null]],
         '/addMeter' => [[['_route' => 'add_meter', '_controller' => 'App\\Controller\\MeterController::addMeter'], null, ['POST' => 0], null, false, false, null]],

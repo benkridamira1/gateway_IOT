@@ -7,7 +7,7 @@ return [
     'get_gateway' => [[], ['_controller' => 'App\\Controller\\GatewayController::getGateway'], [], [['text', '/getGateway']], [], []],
     'delete_gateway' => [[], ['_controller' => 'App\\Controller\\GatewayController::delete'], [], [['text', '/deleteGateway']], [], []],
     'update_gateway' => [[], ['_controller' => 'App\\Controller\\GatewayController::updateMeter'], [], [['text', '/updateGateway']], [], []],
-    'tets' => [[], ['_controller' => 'App\\Controller\\JobController::index'], [], [['text', '/test']], [], []],
+    'test' => [[], ['_controller' => 'App\\Controller\\JobController::test'], [], [['text', '/test']], [], []],
     'add_job' => [[], ['_controller' => 'App\\Controller\\JobController::addJob'], [], [['text', '/addJob']], [], []],
     'JobList' => [[], ['_controller' => 'App\\Controller\\JobController::ListJob'], [], [['text', '/JobList']], [], []],
     'getJob' => [['name'], ['_controller' => 'App\\Controller\\JobController::getJob'], [], [['variable', '/', '[^/]++', 'name', true], ['text', '/getJob']], [], []],
